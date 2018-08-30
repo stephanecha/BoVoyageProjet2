@@ -34,7 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BoVoyage.Framework.UI">
-      <HintPath>..\..\ConsoleApp1\ConsoleApp1\_lib\BoVoyage.Framework.UI.dll</HintPath>
+      <HintPath>..\_lib\BoVoyage.Framework.UI.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
