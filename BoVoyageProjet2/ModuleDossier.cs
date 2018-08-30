@@ -80,16 +80,17 @@ namespace BoVoyageProjet2APP
         {
             ConsoleHelper.AfficherEntete("Nouveau");
 
-            var DossierReservation = new DossierReservation
+            var dossierReservation = new DossierReservation
             (
                 numeroCarteBancaire: ConsoleSaisie.SaisirChaineObligatoire("numeroCarteBancaire ?"),
                 idClient : ConsoleSaisie.SaisirEntierObligatoire("idClient ?"),
                 idVoyage : ConsoleSaisie.SaisirEntierObligatoire("idVoyage ?")
             );
 
-            //this.liste.Add(DossierReservation);
+            ServiceDossierReservation service = new ServiceDossierReservation();
+            service.AjouterDossierReservation(dossierReservation);
 
- 
+
 
         }
     }
