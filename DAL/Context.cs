@@ -16,5 +16,7 @@ namespace DAL
         public DbSet<DossierReservation> DossiersReservations { get; set; }
 
         public DbSet<Participant> Participants { get; set; }
+
+        public DbSet<Voyage> Voyages { get; set; }
     }
 }
