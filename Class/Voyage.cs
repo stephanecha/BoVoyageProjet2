@@ -13,10 +13,21 @@ namespace Class
         public int IdDestination { get; set; }
         public int IdAgenceVoyage { get; set; }
 
+        public Voyage(DateTime dateAller, DateTime dateRetour, int placesDisponibles, decimal prixParPersonne)
+        {
+            
+            DateAller = dateAller;
+            DateRetour = dateRetour;
+            PlacesDisponibles = placesDisponibles;
+            PrixParPersonne = prixParPersonne;
+        }
+
         public void Reserver(int places)
         {
 
         }
+
+
 
     }
 }

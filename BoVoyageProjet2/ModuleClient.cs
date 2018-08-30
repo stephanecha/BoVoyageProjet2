@@ -27,8 +27,8 @@ namespace BoVoyageProjet2APP
         {
             this.liste = new List<Client>
             {
-                new Client{Id = 1, Nom = "BAZAN", Prenom = "Yannick", DateNaissance = "",Email = "ybazan.pro@live.fr" },
-                new Client{Id = 2, Nom = "PEANT", Prenom = "Frédéric", Email = "f.peant@gtm-ingenierie.fr" },
+                //new Client{Id = 1, Nom = "BAZAN", Prenom = "Yannick", DateNaissance = "",Email = "ybazan.pro@live.fr" },
+                //new Client{Id = 2, Nom = "PEANT", Prenom = "Frédéric", Email = "f.peant@gtm-ingenierie.fr" },
             };
         }
 
@@ -56,15 +56,15 @@ namespace BoVoyageProjet2APP
         {
             ConsoleHelper.AfficherEntete("Nouveau");
 
-            var client = new Client
-            {
-                Nom = ConsoleSaisie.SaisirChaineObligatoire("Nom ?"),
-                Prenom = ConsoleSaisie.SaisirChaineObligatoire("Prénom ?"),
-                Email = ConsoleSaisie.SaisirChaineOptionnelle("Email ?"),
-                //DateNaissance = ConsoleSaisie.SaisirDateOptionnelle("Date d'inscription ?")
-            };
+            //var client = new Client
+            //{
+            //    Nom = ConsoleSaisie.SaisirChaineObligatoire("Nom ?"),
+            //    Prenom = ConsoleSaisie.SaisirChaineObligatoire("Prénom ?"),
+            //    Email = ConsoleSaisie.SaisirChaineOptionnelle("Email ?"),
+            //    //DateNaissance = ConsoleSaisie.SaisirDateOptionnelle("Date d'inscription ?")
+            //};
 
-            this.liste.Add(client);
+           // this.liste.Add(client);
         }
     }
 }

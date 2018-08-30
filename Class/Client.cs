@@ -8,5 +8,9 @@ namespace Class
     {
         public string Email { get; set; }
 
+        public Client(string email)
+        {
+            Email = email;
+        }
     }
 }

@@ -31,6 +31,16 @@ namespace Class
         public int IdClient { get; set; }
         public int IdVoyage { get; set; }
 
+        public DossierReservation (string numeroCarteBancaire, int idClient, int idVoyage)
+        {
+            NumeroUnique = Id;
+            NumeroCarteBancaire = numeroCarteBancaire;
+            IdClient = idClient;
+            IdVoyage = idVoyage;
+            PrixParPersonne = 100;
+            PrixTotal = 1000;
+        }
+
         public void Annuler(RaisonAnnulationDossier raison)
         {
             EtatDossierReservation = EtatDossierReservation.Refusee;

@@ -8,5 +8,10 @@ namespace Class
     {
         public int Id { get; set; }
         public string Nom { get; set; }
+
+        public AgenceVoyage (string nom)
+        {
+            Nom = Nom;
+        }
     }
 }

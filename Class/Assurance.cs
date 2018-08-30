@@ -13,5 +13,11 @@ namespace Class
         public int Id { get; set; }
         public decimal Montant { get; set; }
         public TypeAssurance TypeAssurance { get; set; }
+
+        public Assurance(TypeAssurance typeAssurance, decimal montant)
+        {
+            TypeAssurance = typeAssurance;
+            Montant = montant;
+        }
     }
 }
