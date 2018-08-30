@@ -11,7 +11,7 @@ namespace Service
 
         public ServiceVoyage()
         {
-
+            dalVoyage = new DALVoyage();
         }
 
         public void AjouterVoyage(Voyage voyage)
