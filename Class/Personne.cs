@@ -12,7 +12,7 @@ namespace Class
         public string Prenom { get; set; }
         public string Adresse { get; set; }
         public string Telephone { get; set; }
-        public string DateNaissance { get; set; }
+        public DateTime DateNaissance { get; set; }
         public int Age { get; }
     }
 }
