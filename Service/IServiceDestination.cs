@@ -16,5 +16,7 @@ namespace Service
         void ModifierDestination(Destination destination);
 
         void SupprimerDestination(Destination destination);
+
+        void SupprimerDestination(int id);
     }
 }

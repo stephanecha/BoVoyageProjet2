@@ -42,5 +42,10 @@ namespace Service
         {
             dALDestination.SupprimerDestination(destination);
         }
+
+        public void SupprimerDestination(int id)
+        {
+            dALDestination.SupprimerDestination(id);
+        }
     }
 }
