@@ -6,37 +6,31 @@ using Class;
 
 namespace BoVoyageProjet2APP
 {
-    public class ModuleClient : ModuleBase<Application>
+    public class ModuleDestination : ModuleBase<Application>
     {
         // On définit ici les propriétés qu'on veut afficher
         //  et la manière de les afficher
         private static readonly List<InformationAffichage> strategieAffichageClients =
             new List<InformationAffichage>
             {
-                InformationAffichage.Creer<Client>(x=>x.Id, "Id", 3),
-                InformationAffichage.Creer<Client>(x=>x.Civilite, "Civilite", 3),
-                InformationAffichage.Creer<Client>(x=>x.Nom, "Nom", 10),
-                InformationAffichage.Creer<Client>(x=>x.Prenom, "Prenom", 10),
-                InformationAffichage.Creer<Client>(x=>x.Adresse, "Adresse", 10),
-                InformationAffichage.Creer<Client>(x=>x.Telephone, "Telephone", 10),
-                InformationAffichage.Creer<Client>(x=>x.Email, "Email", 15),
-                InformationAffichage.Creer<Client>(x=>x.DateNaissance, "Date de Naissance", 10),
-                InformationAffichage.Creer<Client>(x=>x.Age, "Age", 10),
+                InformationAffichage.Creer<Destination>(x=>x.Id, "Id", 3),
+                InformationAffichage.Creer<Destination>(x=>x.Continent, "Continent", 10),
+                InformationAffichage.Creer<Destination>(x=>x.Pays, "Pays", 10),
+                InformationAffichage.Creer<Destination>(x=>x.Description, "Description", 10),
             };
 
 
-        private readonly List<Client> liste = new List<Client>();
+        private readonly List<Destination> liste = new List<Destination>();
 
-        public ModuleClient(Application application, string nomModule)
+        public ModuleDestination(Application application, string nomModule)
             : base(application, nomModule)
         {
-            this.liste = new List<Client>
+            this.liste = new List<Destination>
             {
-                new Client("M",  "BAZAN", "Yannick", DateTime.Now, "temp.pro@live.fr" ),
+                //new Client{Id = 1, Nom = "BAZAN", Prenom = "Yannick", DateNaissance = "",Email = "ybazan.pro@live.fr" },
+                //new Client{Id = 2, Nom = "PEANT", Prenom = "Frédéric", Email = "f.peant@gtm-ingenierie.fr" },
             };
         }
-
-
 
         protected override void InitialiserMenu(Menu menu)
         {
@@ -80,16 +74,15 @@ namespace BoVoyageProjet2APP
         {
             ConsoleHelper.AfficherEntete("Nouveau");
 
-            var client = new Client
+            var Destination = new Destination
             (
-                civilite : ConsoleSaisie.SaisirChaineObligatoire("Civilite ?"),
-                nom : ConsoleSaisie.SaisirChaineObligatoire("Nom ?"),
-                prenom : ConsoleSaisie.SaisirChaineObligatoire("Prenom ?"),
-                email : ConsoleSaisie.SaisirChaineObligatoire("Email ?"),
-                dateNaissance : ConsoleSaisie.SaisirDateObligatoire("Date de Naissance ?")
+                continent: ConsoleSaisie.SaisirChaineObligatoire("continent ?"),
+                pays: ConsoleSaisie.SaisirChaineObligatoire("pays ?"),
+                region: ConsoleSaisie.SaisirChaineObligatoire("region ?"),
+                description: ConsoleSaisie.SaisirChaineObligatoire("description ?")
             );
-
-             this.liste.Add(client);
+   
+            this.liste.Add(Destination);
         }
     }
 }

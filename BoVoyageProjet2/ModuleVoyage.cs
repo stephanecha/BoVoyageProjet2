@@ -13,19 +13,21 @@ namespace BoVoyageProjet2APP
         private static readonly List<InformationAffichage> strategieAffichageClients =
             new List<InformationAffichage>
             {
-                InformationAffichage.Creer<Client>(x=>x.Id, "Id", 3),
-                InformationAffichage.Creer<Client>(x=>x.Nom, "Nom", 10),
-                InformationAffichage.Creer<Client>(x=>x.Prenom, "Prenom", 10),
-                InformationAffichage.Creer<Client>(x=>x.Email, "Email", 15),
-                InformationAffichage.Creer<Client>(x=>x.DateNaissance, "Date", 10),
+                InformationAffichage.Creer<Voyage>(x=>x.Id, "Id", 3),
+                InformationAffichage.Creer<Voyage>(x=>x.DateAller, "Date d'Aller", 10),
+                InformationAffichage.Creer<Voyage>(x=>x.DateRetour, "Date de Retour", 10),
+                InformationAffichage.Creer<Voyage>(x=>x.PlacesDisponibles, "Places Disponibles", 15),
+                InformationAffichage.Creer<Voyage>(x=>x.PrixParPersonne, "Prix Par Personne", 10),
+                InformationAffichage.Creer<Voyage>(x=>x.IdDestination, "IdDestination", 10),
+                InformationAffichage.Creer<Voyage>(x=>x.IdAgenceVoyage, "IdAgenceVoyage", 10),
             };
 
-        private readonly List<Client> liste = new List<Client>();
+        private readonly List<Voyage> liste = new List<Voyage>();
 
         public ModuleVoyage(Application application, string nomModule)
             : base(application, nomModule)
         {
-            this.liste = new List<Client>
+            this.liste = new List<Voyage>
             {
                 //new Client{Id = 1, Nom = "BAZAN", Prenom = "Yannick", DateNaissance = "",Email = "ybazan.pro@live.fr" },
                 //new Client{Id = 2, Nom = "PEANT", Prenom = "Frédéric", Email = "f.peant@gtm-ingenierie.fr" },
@@ -42,7 +44,25 @@ namespace BoVoyageProjet2APP
             {
                 FonctionAExecuter = this.Nouveau
             });
+            menu.AjouterElement(new ElementMenu("3", "Modifier")
+            {
+                FonctionAExecuter = this.Modifier
+            });
+            menu.AjouterElement(new ElementMenu("4", "Supprimer")
+            {
+                FonctionAExecuter = this.Supprimer
+            });
             menu.AjouterElement(new ElementMenuQuitterMenu("R", "Revenir au menu principal..."));
+        }
+
+        private void Supprimer()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Modifier()
+        {
+            throw new NotImplementedException();
         }
 
         private void Afficher()
@@ -56,15 +76,17 @@ namespace BoVoyageProjet2APP
         {
             ConsoleHelper.AfficherEntete("Nouveau");
 
-            //var client = new Client
-            //{
-            //    Nom = ConsoleSaisie.SaisirChaineObligatoire("Nom ?"),
-            //    Prenom = ConsoleSaisie.SaisirChaineObligatoire("Prénom ?"),
-            //    Email = ConsoleSaisie.SaisirChaineOptionnelle("Email ?"),
-            //    //DateNaissance = ConsoleSaisie.SaisirDateOptionnelle("Date d'inscription ?")
-            //};
+            var Voyage = new Voyage
+            (
+                dateAller : ConsoleSaisie.SaisirDateObligatoire("dateAller ?"),
+                dateRetour : ConsoleSaisie.SaisirDateObligatoire("dateRetour ?"),
+                placesDisponibles : ConsoleSaisie.SaisirEntierObligatoire("Places Disponibles ?"),
+                prixParPersonne : ConsoleSaisie.SaisirEntierObligatoire("Prix Par Personne ?")
+            );
 
-            //this.liste.Add(client);
+            this.liste.Add(Voyage);
+
+
         }
     }
 }
