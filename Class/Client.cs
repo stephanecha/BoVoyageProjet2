@@ -8,9 +8,15 @@ namespace Class
     {
         public string Email { get; set; }
 
-        public Client(string email)
+
+        public Client(string civilite, string nom, string prenom, DateTime dateNaissance, string email)
         {
+            Civilite = civilite;
+            Nom = nom;
+            Prenom = prenom;
+            DateNaissance = dateNaissance;
             Email = email;
+
         }
     }
 }
