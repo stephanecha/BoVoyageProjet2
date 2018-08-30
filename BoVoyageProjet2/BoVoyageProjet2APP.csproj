@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BoVoyage.Framework.UI">
+      <HintPath>..\..\ConsoleApp1\ConsoleApp1\_lib\BoVoyage.Framework.UI.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,11 +46,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Applicationcs.cs" />
+    <Compile Include="ModuleAgence.cs" />
+    <Compile Include="ModuleClient.cs" />
+    <Compile Include="ModuleDossier.cs" />
+    <Compile Include="ModuleVoyage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Class\Class.csproj">
+      <Project>{8a060276-f27a-4a04-a99f-3e1037df4c0b}</Project>
+      <Name>Class</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
