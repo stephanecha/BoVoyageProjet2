@@ -22,6 +22,9 @@ namespace Class
 
         public virtual ICollection<Voyage> Voyages { get; set; }
 
+        public Destination() { }
+
+
         public Destination(string continent, string pays, string region, string description = null)
         {
             Continent = continent;
