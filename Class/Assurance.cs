@@ -14,6 +14,10 @@ namespace Class
         public decimal Montant { get; set; }
         public TypeAssurance TypeAssurance { get; set; }
 
+        //Implementation du constructeur par defaut nécéssaire à Entity
+        public Assurance() { }
+
+
         public Assurance(TypeAssurance typeAssurance, decimal montant)
         {
             TypeAssurance = typeAssurance;

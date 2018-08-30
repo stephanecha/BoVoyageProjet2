@@ -12,7 +12,10 @@ namespace Class
         [Required]
         public string Nom { get; set; }
 
-        public virtual ICollection<Voyage> Voyages { get; set; } 
+        public virtual ICollection<Voyage> Voyages { get; set; }
+
+        //Implementation du constructeur par defaut nécéssaire à Entity
+        public AgenceVoyage() { }
 
         public AgenceVoyage (string nom)
         {

@@ -31,6 +31,10 @@ namespace Class
         public int IdClient { get; set; }
         public int IdVoyage { get; set; }
 
+        //Implementation du constructeur par defaut nécéssaire à Entity
+        public DossierReservation() { }
+
+
         public DossierReservation (string numeroCarteBancaire, int idClient, int idVoyage)
         {
             NumeroUnique = Id;

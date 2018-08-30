@@ -22,6 +22,7 @@ namespace Class
 
         public virtual ICollection<Voyage> Voyages { get; set; }
 
+        //Implementation du constructeur par defaut nécéssaire à Entity
         public Destination() { }
 
 

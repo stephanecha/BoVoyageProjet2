@@ -10,6 +10,9 @@ namespace Class
         public float Reduction { get; set; }
         public int IdDossierReservation { get; set; }
 
+        //Implementation du constructeur par defaut nécéssaire à Entity
+        public Participant() { }
+
         public Participant(string civilite, string nom, string prenom, DateTime dateNaissance, int numeroUnique,float reduction)
         {
             base.Civilite = civilite;

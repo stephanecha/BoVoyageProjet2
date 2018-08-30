@@ -13,6 +13,9 @@ namespace Class
         public int IdDestination { get; set; }
         public int IdAgenceVoyage { get; set; }
 
+        //Implementation du constructeur par defaut nécéssaire à Entity
+        public Voyage() { }
+
         public Voyage(DateTime dateAller, DateTime dateRetour, int placesDisponibles, decimal prixParPersonne)
         {
             

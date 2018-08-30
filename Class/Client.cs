@@ -8,6 +8,8 @@ namespace Class
     {
         public string Email { get; set; }
 
+        //Implementation du constructeur par defaut nécéssaire à Entity
+        public Client() { }
 
         public Client(string civilite, string nom, string prenom, DateTime dateNaissance, string email)
         {
