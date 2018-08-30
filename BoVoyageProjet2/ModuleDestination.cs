@@ -3,6 +3,8 @@ using System.Collections.Generic;
 //using BoVoyage.Framework.Exemple.Metier;
 using BoVoyage.Framework.UI;
 using Class;
+using Service;
+
 
 namespace BoVoyageProjet2APP
 {
@@ -20,16 +22,15 @@ namespace BoVoyageProjet2APP
             };
 
 
-        private readonly List<Destination> liste = new List<Destination>();
+        private readonly IEnumerable<Destination> liste = new List<Destination>();
 
         public ModuleDestination(Application application, string nomModule)
             : base(application, nomModule)
         {
-            this.liste = new List<Destination>
-            {
-                //new Client{Id = 1, Nom = "BAZAN", Prenom = "Yannick", DateNaissance = "",Email = "ybazan.pro@live.fr" },
-                //new Client{Id = 2, Nom = "PEANT", Prenom = "Frédéric", Email = "f.peant@gtm-ingenierie.fr" },
-            };
+            ServiceDestination service = new ServiceDestination();
+
+            this.liste = service.ListerDestination();
+            
         }
 
         protected override void InitialiserMenu(Menu menu)
@@ -82,7 +83,7 @@ namespace BoVoyageProjet2APP
                 description: ConsoleSaisie.SaisirChaineObligatoire("description ?")
             );
    
-            this.liste.Add(Destination);
+            //this.liste.Add(Destination);
         }
     }
 }
