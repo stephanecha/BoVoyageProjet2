@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Applicationcs.cs" />
+    <Compile Include="ModuleDestination.cs" />
     <Compile Include="ModuleAgence.cs" />
     <Compile Include="ModuleClient.cs" />
     <Compile Include="ModuleDossier.cs" />

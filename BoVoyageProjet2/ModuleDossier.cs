@@ -13,19 +13,23 @@ namespace BoVoyageProjet2APP
         private static readonly List<InformationAffichage> strategieAffichageClients =
             new List<InformationAffichage>
             {
-                InformationAffichage.Creer<Client>(x=>x.Id, "Id", 3),
-                InformationAffichage.Creer<Client>(x=>x.Nom, "Nom", 10),
-                InformationAffichage.Creer<Client>(x=>x.Prenom, "Prenom", 10),
-                InformationAffichage.Creer<Client>(x=>x.Email, "Email", 15),
-                InformationAffichage.Creer<Client>(x=>x.DateNaissance, "Date", 10),
+                InformationAffichage.Creer<DossierReservation>(x=>x.Id, "Id", 3),
+                InformationAffichage.Creer<DossierReservation>(x=>x.NumeroUnique, "NumeroUnique", 10),
+                InformationAffichage.Creer<DossierReservation>(x=>x.NumeroCarteBancaire, "Numero de Carte Bancaire", 10),
+                InformationAffichage.Creer<DossierReservation>(x=>x.PrixParPersonne, "Prix Par Personne", 15),
+                InformationAffichage.Creer<DossierReservation>(x=>x.PrixTotal, "PrixTotal", 10),
+                InformationAffichage.Creer<DossierReservation>(x=>x.EtatDossierReservation, "EtatDossierReservation", 10),
+                InformationAffichage.Creer<DossierReservation>(x=>x.RaisonAnnulationDossier, "RaisonAnnulationDossier", 10),
+                InformationAffichage.Creer<DossierReservation>(x=>x.IdClient, "IdClient", 10),
+                InformationAffichage.Creer<DossierReservation>(x=>x.IdVoyage, "IdVoyage", 10),
             };
 
-        private readonly List<Client> liste = new List<Client>();
+        private readonly List<DossierReservation> liste = new List<DossierReservation>();
 
         public ModuleDossier(Application application, string nomModule)
             : base(application, nomModule)
         {
-            this.liste = new List<Client>
+            this.liste = new List<DossierReservation>
             {
                 //new Client{Id = 1, Nom = "BAZAN", Prenom = "Yannick", DateNaissance = "",Email = "ybazan.pro@live.fr" },
                 //new Client{Id = 2, Nom = "PEANT", Prenom = "Frédéric", Email = "f.peant@gtm-ingenierie.fr" },
@@ -42,7 +46,25 @@ namespace BoVoyageProjet2APP
             {
                 FonctionAExecuter = this.Nouveau
             });
+            menu.AjouterElement(new ElementMenu("3", "Modifier")
+            {
+                FonctionAExecuter = this.Modifier
+            });
+            menu.AjouterElement(new ElementMenu("4", "Supprimer")
+            {
+                FonctionAExecuter = this.Supprimer
+            });
             menu.AjouterElement(new ElementMenuQuitterMenu("R", "Revenir au menu principal..."));
+        }
+
+        private void Supprimer()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void Modifier()
+        {
+            throw new NotImplementedException();
         }
 
         private void Afficher()
@@ -56,15 +78,17 @@ namespace BoVoyageProjet2APP
         {
             ConsoleHelper.AfficherEntete("Nouveau");
 
-            //var client = new Client
-            //{
-            //    Nom = ConsoleSaisie.SaisirChaineObligatoire("Nom ?"),
-            //    Prenom = ConsoleSaisie.SaisirChaineObligatoire("Prénom ?"),
-            //    Email = ConsoleSaisie.SaisirChaineOptionnelle("Email ?"),
-            //    //DateNaissance = ConsoleSaisie.SaisirDateOptionnelle("Date d'inscription ?")
-            //};
+            var DossierReservation = new DossierReservation
+            (
+                numeroCarteBancaire: ConsoleSaisie.SaisirChaineObligatoire("numeroCarteBancaire ?"),
+                idClient : ConsoleSaisie.SaisirEntierObligatoire("idClient ?"),
+                idVoyage : ConsoleSaisie.SaisirEntierObligatoire("idVoyage ?")
+            );
 
-            //this.liste.Add(client);
+            this.liste.Add(DossierReservation);
+
+ 
+
         }
     }
 }
