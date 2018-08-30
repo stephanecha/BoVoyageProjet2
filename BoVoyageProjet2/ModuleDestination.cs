@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 //using BoVoyage.Framework.Exemple.Metier;
 using BoVoyage.Framework.UI;
@@ -22,14 +23,11 @@ namespace BoVoyageProjet2APP
             };
 
 
-        private readonly IEnumerable<Destination> liste = new List<Destination>();
+        private  IEnumerable<Destination> liste = new List<Destination>();
 
         public ModuleDestination(Application application, string nomModule)
             : base(application, nomModule)
         {
-            ServiceDestination service = new ServiceDestination();
-
-            this.liste = service.ListerDestination();
             
         }
 
@@ -56,7 +54,16 @@ namespace BoVoyageProjet2APP
 
         private void Supprimer()
         {
-            throw new NotImplementedException();
+            ConsoleHelper.AfficherEntete("Destination à supprimer");
+      
+            ServiceDestination service = new ServiceDestination();
+
+            this.liste = service.ListerDestination();
+            ConsoleHelper.AfficherListe(this.liste, strategieAffichageClients);
+
+            service.SupprimerDestination(ConsoleSaisie.SaisirEntierObligatoire("Id Destination à supprimer ?"));
+
+
         }
 
         private void Modifier()
@@ -67,23 +74,25 @@ namespace BoVoyageProjet2APP
         private void Afficher()
         {
             ConsoleHelper.AfficherEntete("Afficher");
+            ServiceDestination service = new ServiceDestination();
 
+            this.liste = service.ListerDestination();
             ConsoleHelper.AfficherListe(this.liste, strategieAffichageClients);
         }
 
         private void Nouveau()
         {
             ConsoleHelper.AfficherEntete("Nouveau");
-
-            var Destination = new Destination
+            
+            var destination = new Destination
             (
                 continent: ConsoleSaisie.SaisirChaineObligatoire("continent ?"),
                 pays: ConsoleSaisie.SaisirChaineObligatoire("pays ?"),
                 region: ConsoleSaisie.SaisirChaineObligatoire("region ?"),
                 description: ConsoleSaisie.SaisirChaineObligatoire("description ?")
             );
-   
-            //this.liste.Add(Destination);
+            ServiceDestination service = new ServiceDestination();
+            service.AjouterDestination(destination);
         }
     }
 }

@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 //using BoVoyage.Framework.Exemple.Metier;
 using BoVoyage.Framework.UI;
 using Class;
+using Service;
 
 namespace BoVoyageProjet2APP
 {
@@ -22,16 +24,14 @@ namespace BoVoyageProjet2APP
                 InformationAffichage.Creer<Voyage>(x=>x.IdAgenceVoyage, "IdAgenceVoyage", 10),
             };
 
-        private readonly List<Voyage> liste = new List<Voyage>();
+        private  IEnumerable<Voyage> liste = new List<Voyage>();
 
         public ModuleVoyage(Application application, string nomModule)
             : base(application, nomModule)
         {
-            this.liste = new List<Voyage>
-            {
-                //new Client{Id = 1, Nom = "BAZAN", Prenom = "Yannick", DateNaissance = "",Email = "ybazan.pro@live.fr" },
-                //new Client{Id = 2, Nom = "PEANT", Prenom = "Frédéric", Email = "f.peant@gtm-ingenierie.fr" },
-            };
+            //ServiceAgenceVoyage service = new ServiceAgenceVoyage();
+
+            //this.liste = service.ListerAgenceVoyage();
         }
 
         protected override void InitialiserMenu(Menu menu)
@@ -69,6 +69,9 @@ namespace BoVoyageProjet2APP
         {
             ConsoleHelper.AfficherEntete("Afficher");
 
+            ServiceVoyage service = new ServiceVoyage();
+
+            this.liste = service.ListerVoyage();
             ConsoleHelper.AfficherListe(this.liste, strategieAffichageClients);
         }
 
@@ -76,16 +79,16 @@ namespace BoVoyageProjet2APP
         {
             ConsoleHelper.AfficherEntete("Nouveau");
 
-            var Voyage = new Voyage
+            var voyage = new Voyage
             (
                 dateAller : ConsoleSaisie.SaisirDateObligatoire("dateAller ?"),
                 dateRetour : ConsoleSaisie.SaisirDateObligatoire("dateRetour ?"),
                 placesDisponibles : ConsoleSaisie.SaisirEntierObligatoire("Places Disponibles ?"),
                 prixParPersonne : ConsoleSaisie.SaisirEntierObligatoire("Prix Par Personne ?")
             );
-
-            this.liste.Add(Voyage);
-
+           
+            ServiceVoyage service = new ServiceVoyage();
+            service.AjouterVoyage(voyage);
 
         }
     }

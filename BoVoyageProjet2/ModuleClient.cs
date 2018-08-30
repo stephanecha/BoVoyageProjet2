@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 //using BoVoyage.Framework.Exemple.Metier;
 using BoVoyage.Framework.UI;
 using Class;
+using Service;
 
 namespace BoVoyageProjet2APP
 {
@@ -25,7 +27,7 @@ namespace BoVoyageProjet2APP
             };
 
 
-        private readonly List<Client> liste = new List<Client>();
+        private  IEnumerable<Client> liste = new List<Client>();
 
         public ModuleClient(Application application, string nomModule)
             : base(application, nomModule)
@@ -89,7 +91,7 @@ namespace BoVoyageProjet2APP
                 dateNaissance : ConsoleSaisie.SaisirDateObligatoire("Date de Naissance ?")
             );
 
-             this.liste.Add(client);
+            // this.liste.Add(client);
         }
     }
 }

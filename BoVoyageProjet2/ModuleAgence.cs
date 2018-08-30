@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 //using BoVoyage.Framework.Exemple.Metier;
 using BoVoyage.Framework.UI;
 using Class;
+using Service;
 
 namespace BoVoyageProjet2APP
 {
@@ -18,16 +20,14 @@ namespace BoVoyageProjet2APP
             };
 
 
-        private readonly List<AgenceVoyage> liste = new List<AgenceVoyage>();
+        private  IEnumerable<AgenceVoyage> liste = new List<AgenceVoyage>();
 
         public ModuleAgence(Application application, string nomModule)
             : base(application, nomModule)
         {
-            this.liste = new List<AgenceVoyage>
-            {
-                //new Client{Id = 1, Nom = "BAZAN", Prenom = "Yannick", DateNaissance = "",Email = "ybazan.pro@live.fr" },
-                //new Client{Id = 2, Nom = "PEANT", Prenom = "Frédéric", Email = "f.peant@gtm-ingenierie.fr" },
-            };
+
+           
+
         }
 
         protected override void InitialiserMenu(Menu menu)
@@ -53,7 +53,15 @@ namespace BoVoyageProjet2APP
 
         private void Supprimer()
         {
-            throw new NotImplementedException();
+            ConsoleHelper.AfficherEntete("Destination à supprimer");
+
+            ServiceAgenceVoyage  service = new ServiceAgenceVoyage();
+
+            this.liste = service.ListerAgenceVoyage();
+            ConsoleHelper.AfficherListe(this.liste, strategieAffichageClients);
+
+           // service.SupprimerAgenceVoyage(ConsoleSaisie.SaisirEntierObligatoire("Id Agence à supprimer ?"));
+
         }
 
         private void Modifier()
@@ -66,6 +74,11 @@ namespace BoVoyageProjet2APP
             ConsoleHelper.AfficherEntete("Afficher");
 
             ConsoleHelper.AfficherListe(this.liste, strategieAffichageClients);
+            ConsoleHelper.AfficherEntete("Afficher");
+            ServiceAgenceVoyage service = new ServiceAgenceVoyage();
+
+            this.liste = service.ListerAgenceVoyage();
+            ConsoleHelper.AfficherListe(this.liste, strategieAffichageClients);
         }
 
         private void Nouveau()
@@ -77,7 +90,7 @@ namespace BoVoyageProjet2APP
                 nom : ConsoleSaisie.SaisirChaineObligatoire("Nom ?")
             );
 
-            this.liste.Add(AgenceVoyage);
+            //this.liste.Add(AgenceVoyage);
         }
     }
 }

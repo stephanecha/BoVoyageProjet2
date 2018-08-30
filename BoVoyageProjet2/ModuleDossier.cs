@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 //using BoVoyage.Framework.Exemple.Metier;
 using BoVoyage.Framework.UI;
 using Class;
+using Service;
 
 namespace BoVoyageProjet2APP
 {
@@ -24,7 +26,7 @@ namespace BoVoyageProjet2APP
                 InformationAffichage.Creer<DossierReservation>(x=>x.IdVoyage, "IdVoyage", 10),
             };
 
-        private readonly List<DossierReservation> liste = new List<DossierReservation>();
+        private  IEnumerable<DossierReservation> liste = new List<DossierReservation>();
 
         public ModuleDossier(Application application, string nomModule)
             : base(application, nomModule)
@@ -85,7 +87,7 @@ namespace BoVoyageProjet2APP
                 idVoyage : ConsoleSaisie.SaisirEntierObligatoire("idVoyage ?")
             );
 
-            this.liste.Add(DossierReservation);
+            //this.liste.Add(DossierReservation);
 
  
 
