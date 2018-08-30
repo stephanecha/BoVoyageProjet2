@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BoVoyageProjet2APP", "BoVoy
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Class", "Class\Class.csproj", "{8A060276-F27A-4A04-A99F-3E1037DF4C0B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{FF8DCDAD-EBA6-435A-83EE-243D70AE8B9C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Service\Service.csproj", "{7834C735-A072-4E36-8DB0-6FF7AB8C75F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{8A060276-F27A-4A04-A99F-3E1037DF4C0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8A060276-F27A-4A04-A99F-3E1037DF4C0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8A060276-F27A-4A04-A99F-3E1037DF4C0B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF8DCDAD-EBA6-435A-83EE-243D70AE8B9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF8DCDAD-EBA6-435A-83EE-243D70AE8B9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF8DCDAD-EBA6-435A-83EE-243D70AE8B9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF8DCDAD-EBA6-435A-83EE-243D70AE8B9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7834C735-A072-4E36-8DB0-6FF7AB8C75F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7834C735-A072-4E36-8DB0-6FF7AB8C75F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7834C735-A072-4E36-8DB0-6FF7AB8C75F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7834C735-A072-4E36-8DB0-6FF7AB8C75F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
