@@ -10,7 +10,7 @@ namespace Service
 
         public ServiceDestination()
         {
-
+            dALDestination = new DALDestination();
         }
 
         public void AjouterDestination(Destination destination)
