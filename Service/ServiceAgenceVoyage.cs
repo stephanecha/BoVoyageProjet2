@@ -8,9 +8,10 @@ namespace Service
     {
         private IDALAgenceVoyage dalAgenceVoyage;
 
+
         public ServiceAgenceVoyage()
         {
-            // initialiser dalAgenceVoyage
+            dalAgenceVoyage = new DALAgenceVoyage();
         }
 
         public void AjouterAgenceVoyage(AgenceVoyage agenceVoyage)
