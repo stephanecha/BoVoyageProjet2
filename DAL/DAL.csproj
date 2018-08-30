@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context.cs" />
+    <Compile Include="DALAgenceVoyage.cs" />
+    <Compile Include="DALDestination.cs" />
     <Compile Include="IDALParticipant.cs" />
     <Compile Include="IDALClient.cs" />
     <Compile Include="IDALAssurance.cs" />
