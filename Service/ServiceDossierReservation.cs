@@ -10,7 +10,7 @@ namespace Service
 
         public ServiceDossierReservation()
         {
-
+            dalDossierReservation = new DALDossierReservation();
         }
 
         public void AjouterDossierReservation(DossierReservation dossierReservation)

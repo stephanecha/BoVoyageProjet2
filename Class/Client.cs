@@ -25,5 +25,10 @@ namespace Class
             Adresse = adresse;
             Telephone = telephone;
         }
+
+        public override string ToString()
+        {
+            return $"{Nom} {Prenom}";
+        }
     }
 }

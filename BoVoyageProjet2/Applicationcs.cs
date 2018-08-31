@@ -14,8 +14,7 @@ namespace BoVoyageProjet2APP
         public ModuleDestination ModuleDestination { get; private set; }
         public ModuleAssurance ModuleAssurance { get; private set; }
         public ModuleVoyage ModuleVoyage { get; private set; }
-        //public ModuleDossier ModuleDossier { get; private set; }
-
+        public ModuleDossier ModuleDossier { get; private set; }
 
         protected override void InitialiserModules()
         {
@@ -24,7 +23,7 @@ namespace BoVoyageProjet2APP
             this.ModuleDestination = this.AjouterModule(new ModuleDestination(this, "Destination"));
             this.ModuleAssurance = this.AjouterModule(new ModuleAssurance(this, "Assurance"));
             this.ModuleVoyage = this.AjouterModule(new ModuleVoyage(this, "Voyages"));
-            //this.ModuleDossier = this.AjouterModule(new ModuleDossier(this, "Dossier"));
+            this.ModuleDossier = this.AjouterModule(new ModuleDossier(this, "Dossiers de Réservation"));
         }
     }
 }

@@ -10,18 +10,15 @@ namespace BoVoyageProjet2APP
     {
         // On définit ici les propriétés qu'on veut afficher
         //  et la manière de les afficher
-        private static readonly List<InformationAffichage> strategieAffichageClients =
+        private static readonly List<InformationAffichage> strategieAffichageDossiers =
             new List<InformationAffichage>
             {
-                InformationAffichage.Creer<DossierReservation>(x=>x.Id, "Id", 3),
-                InformationAffichage.Creer<DossierReservation>(x=>x.NumeroUnique, "NumeroUnique", 10),
-                InformationAffichage.Creer<DossierReservation>(x=>x.NumeroCarteBancaire, "Numero de Carte Bancaire", 10),
-                InformationAffichage.Creer<DossierReservation>(x=>x.PrixParPersonne, "Prix Par Personne", 15),
-                InformationAffichage.Creer<DossierReservation>(x=>x.PrixTotal, "PrixTotal", 10),
-                InformationAffichage.Creer<DossierReservation>(x=>x.EtatDossierReservation, "EtatDossierReservation", 10),
-                InformationAffichage.Creer<DossierReservation>(x=>x.RaisonAnnulationDossier, "RaisonAnnulationDossier", 10),
-                InformationAffichage.Creer<DossierReservation>(x=>x.IdClient, "IdClient", 10),
-                InformationAffichage.Creer<DossierReservation>(x=>x.IdVoyage, "IdVoyage", 10),
+                InformationAffichage.Creer<DossierReservation>(x=>x.NumeroUnique, "N° Unique", 20),
+                InformationAffichage.Creer<DossierReservation>(x=>x.NumeroCarteBancaire, "N° CB", 20),
+                InformationAffichage.Creer<DossierReservation>(x=>x.PrixParPersonne, "Prix/Pers", 15),
+                InformationAffichage.Creer<DossierReservation>(x=>x.Etat, "Etat", 15),
+                InformationAffichage.Creer<DossierReservation>(x=>x.Client, "Client", 20),
+                InformationAffichage.Creer<DossierReservation>(x=>x.Voyage, "Voyage", 50)
             };
 
         private IEnumerable<DossierReservation> liste = new List<DossierReservation>();
@@ -38,51 +35,24 @@ namespace BoVoyageProjet2APP
             {
                 FonctionAExecuter = this.AfficherListe
             });
-            menu.AjouterElement(new ElementMenu("2", "Nouveau")
-            {
-                FonctionAExecuter = this.Nouveau
-            });
-            menu.AjouterElement(new ElementMenu("3", "Modifier")
-            {
-                FonctionAExecuter = this.Modifier
-            });
-            menu.AjouterElement(new ElementMenu("4", "Supprimer")
-            {
-                FonctionAExecuter = this.Supprimer
-            });
             menu.AjouterElement(new ElementMenuQuitterMenu("R", "Revenir au menu principal..."));
-        }
-
-        private void Supprimer()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void Modifier()
-        {
-            throw new NotImplementedException();
         }
 
         private void AfficherListe()
         {
             ConsoleHelper.AfficherEntete("Afficher");
 
-            ConsoleHelper.AfficherListe(this.liste, strategieAffichageClients);
+            try
+            {
+                ServiceDossierReservation service = new ServiceDossierReservation();
+                this.liste = service.ListerDossierReservation();
+                ConsoleHelper.AfficherListe(this.liste, strategieAffichageDossiers);
+            }
+            catch
+            {
+                ConsoleHelper.AfficherMessageErreur("Problème lors de l'affichage des Dossiers de Réservation!");
+            }
         }
 
-        private void Nouveau()
-        {
-            ConsoleHelper.AfficherEntete("Nouveau");
-
-            var dossierReservation = new DossierReservation
-            (
-                /*numeroCarteBancaire: ConsoleSaisie.SaisirChaineObligatoire("numeroCarteBancaire ?"),
-                idClient : ConsoleSaisie.SaisirEntierObligatoire("idClient ?"),
-                idVoyage : ConsoleSaisie.SaisirEntierObligatoire("idVoyage ?")*/
-            );
-
-            ServiceDossierReservation service = new ServiceDossierReservation();
-            service.AjouterDossierReservation(dossierReservation);
-        }
     }
 }

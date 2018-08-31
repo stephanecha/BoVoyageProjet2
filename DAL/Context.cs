@@ -19,7 +19,7 @@ namespace DAL
 
         public DbSet<Voyage> Voyages { get; set; }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        /*protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<DossierReservation>()
                 .HasMany(c => c.Assurances)
@@ -32,6 +32,6 @@ namespace DAL
                 });
 
             base.OnModelCreating(modelBuilder);
-        }
+        }*/
     }
 }

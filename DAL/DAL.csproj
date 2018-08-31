@@ -47,6 +47,7 @@
     <Compile Include="DALAssurance.cs" />
     <Compile Include="DALClient.cs" />
     <Compile Include="DALDestination.cs" />
+    <Compile Include="DALDossierReservation.cs" />
     <Compile Include="DALVoyage.cs" />
     <Compile Include="IDALParticipant.cs" />
     <Compile Include="IDALClient.cs" />

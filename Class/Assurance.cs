@@ -19,7 +19,7 @@ namespace Class
         [EnumDataType(typeof(TypeAssurance))]
         public TypeAssurance Type { get; set; }
 
-        public virtual ICollection<DossierReservation> DossiersReservations { get; set; }
+        //public virtual ICollection<DossierReservation> DossiersReservations { get; set; }
 
         //Implementation du constructeur par defaut nécéssaire à Entity
         public Assurance() { }

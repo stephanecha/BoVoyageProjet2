@@ -60,7 +60,9 @@ namespace Class
 
         }
 
-
-
+        public override string ToString()
+        {
+            return $"{Destination} du {DateAller.ToShortDateString()} au {DateRetour.ToShortDateString()}";
+        }
     }
 }
