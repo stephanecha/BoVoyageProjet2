@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Class
+﻿namespace Class
 {
     public enum EtatDossierReservation : byte
     {
