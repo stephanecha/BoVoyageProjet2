@@ -21,7 +21,7 @@ namespace DAL
         {
             using (Context context = new Context())
             {
-                return context.Voyages.Single(x => x.Id == id);
+                return context.Voyages.Include("AgenceVoyage").Include("Destination").Single(x => x.Id == id);
             }
         }
 
@@ -49,7 +49,7 @@ namespace DAL
         {
             using (Context context = new Context())
             {
-                return context.Voyages.ToList();
+                return context.Voyages.Include("Destination").Include("AgenceVoyage").ToList();
             }
         }
 
