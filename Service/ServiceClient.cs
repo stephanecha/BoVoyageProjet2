@@ -10,7 +10,7 @@ namespace Service
 
         public ServiceClient()
         {
-
+            dalClient = new DALClient();
         }
 
         public void AjouterClient(Client client)
@@ -26,11 +26,6 @@ namespace Service
         public IEnumerable<Client> FiltrerClient(string filtre)
         {
             return dalClient.FiltrerClient(filtre);
-        }
-
-        public IEnumerable<Client> FiltrerClient(int age)
-        {
-            return dalClient.FiltrerClient(age);
         }
 
         public IEnumerable<Client> ListerClient()
