@@ -70,7 +70,6 @@ namespace DAL
             using (Context context = new Context())
             {
                 Destination destination = context.Destinations.Single(x => x.Id == id);
-                context.Destinations.Attach(destination);
                 context.Destinations.Remove(destination);
                 context.SaveChanges();
             }
