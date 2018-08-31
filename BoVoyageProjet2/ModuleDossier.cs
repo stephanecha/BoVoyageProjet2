@@ -76,9 +76,9 @@ namespace BoVoyageProjet2APP
 
             var dossierReservation = new DossierReservation
             (
-                numeroCarteBancaire: ConsoleSaisie.SaisirChaineObligatoire("numeroCarteBancaire ?"),
+                /*numeroCarteBancaire: ConsoleSaisie.SaisirChaineObligatoire("numeroCarteBancaire ?"),
                 idClient : ConsoleSaisie.SaisirEntierObligatoire("idClient ?"),
-                idVoyage : ConsoleSaisie.SaisirEntierObligatoire("idVoyage ?")
+                idVoyage : ConsoleSaisie.SaisirEntierObligatoire("idVoyage ?")*/
             );
 
             ServiceDossierReservation service = new ServiceDossierReservation();

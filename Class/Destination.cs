@@ -24,12 +24,16 @@ namespace Class
         public Destination() { }
 
 
-        public Destination(string continent, string pays, string region, string description = null)
+        public Destination(string continent, string pays, string region)
         {
             Continent = continent;
             Pays = pays;
             Region = region;
-            Description = description;
+        }
+
+        public override string ToString()
+        {
+            return $"{Pays} : {Region}";
         }
     }
 }

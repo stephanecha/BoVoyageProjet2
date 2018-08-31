@@ -10,11 +10,17 @@ namespace BoVoyageProjet2APP
     {
         // On définit ici les propriétés qu'on veut afficher
         //  et la manière de les afficher
-        private static readonly List<InformationAffichage> strategieAffichageClients =
+        private static readonly List<InformationAffichage> strategieAffichageAgences =
+            new List<InformationAffichage>
+            {
+                InformationAffichage.Creer<AgenceVoyage>(x=>x.Nom, "Nom", 20)
+            };
+
+        private static readonly List<InformationAffichage> strategieDelModifAgences =
             new List<InformationAffichage>
             {
                 InformationAffichage.Creer<AgenceVoyage>(x=>x.Id, "Id", 3),
-                InformationAffichage.Creer<AgenceVoyage>(x=>x.Nom, "Nom", 10),
+                InformationAffichage.Creer<AgenceVoyage>(x=>x.Nom, "Nom", 20)
             };
 
         private IEnumerable<AgenceVoyage> liste = new List<AgenceVoyage>();
@@ -48,43 +54,85 @@ namespace BoVoyageProjet2APP
 
         private void Supprimer()
         {
-            ConsoleHelper.AfficherEntete("Destination à supprimer");
+            ConsoleHelper.AfficherEntete("Supprimer");
 
-            ServiceAgenceVoyage  service = new ServiceAgenceVoyage();
+            try
+            {
+                ServiceAgenceVoyage service = new ServiceAgenceVoyage();
 
-            this.liste = service.ListerAgenceVoyage();
-            ConsoleHelper.AfficherListe(this.liste, strategieAffichageClients);
+                this.liste = service.ListerAgenceVoyage();
+                ConsoleHelper.AfficherListe(this.liste, strategieDelModifAgences);
 
-           // service.SupprimerAgenceVoyage(ConsoleSaisie.SaisirEntierObligatoire("Id Agence à supprimer ?"));
+                service.SupprimerAgenceVoyage(ConsoleSaisie.SaisirEntierObligatoire("ID de l'Agence de Voyage à supprimer : "));
+                ConsoleHelper.AfficherLibelleSaisie("Agence de Voyage supprimée !");
+            }
+            catch
+            {
+                ConsoleHelper.AfficherMessageErreur("Problème lors de la suppression de l'Agence de Voyage !");
+            }
         }
 
         private void Modifier()
         {
-            throw new NotImplementedException();
+            ConsoleHelper.AfficherEntete("Modifier");
+
+            try
+            {
+                ServiceAgenceVoyage service = new ServiceAgenceVoyage();
+
+                this.liste = service.ListerAgenceVoyage();
+                ConsoleHelper.AfficherListe(this.liste, strategieDelModifAgences);
+
+                AgenceVoyage agenceVoyage = service.ChoisirAgenceVoyage(ConsoleSaisie.SaisirEntierObligatoire("ID de l'Agence de Voyage à modifier : "));
+
+                ConsoleHelper.AfficherLibelleSaisie("Laisser le champ vide pour ne pas le modifier.");
+
+                string saisie = ConsoleSaisie.SaisirChaineOptionnelle("Nom : ");
+                agenceVoyage.Nom = string.IsNullOrWhiteSpace(saisie) ? agenceVoyage.Nom : saisie;
+
+                service.ModifierAgenceVoyage(agenceVoyage);
+                ConsoleHelper.AfficherLibelleSaisie("Agence de Voyage modifiée !");
+            }
+            catch
+            {
+                ConsoleHelper.AfficherMessageErreur("Problème lors de la modification de l'Agence de Voyage !");
+            }
         }
 
         private void AfficherListe()
         {
             ConsoleHelper.AfficherEntete("Afficher");
 
-            ConsoleHelper.AfficherListe(this.liste, strategieAffichageClients);
-            ConsoleHelper.AfficherEntete("Afficher");
-            ServiceAgenceVoyage service = new ServiceAgenceVoyage();
-
-            this.liste = service.ListerAgenceVoyage();
-            ConsoleHelper.AfficherListe(this.liste, strategieAffichageClients);
+            try
+            {
+                ServiceAgenceVoyage service = new ServiceAgenceVoyage();
+                this.liste = service.ListerAgenceVoyage();
+                ConsoleHelper.AfficherListe(this.liste, strategieAffichageAgences);
+            }
+            catch
+            {
+                ConsoleHelper.AfficherMessageErreur("Problème lors de l'affichage des Agences de Voyage !");
+            }
         }
 
         private void Nouveau()
         {
             ConsoleHelper.AfficherEntete("Nouveau");
 
-            var AgenceVoyage = new AgenceVoyage
-            (
-                nom : ConsoleSaisie.SaisirChaineObligatoire("Nom ?")
-            );
+            try
+            {
+                var agenceVoyage = new AgenceVoyage(
+                    nom: ConsoleSaisie.SaisirChaineObligatoire("Nom : ")
+                );
 
-            //this.liste.Add(AgenceVoyage);
+                ServiceAgenceVoyage service = new ServiceAgenceVoyage();
+                service.AjouterAgenceVoyage(agenceVoyage);
+                ConsoleHelper.AfficherLibelleSaisie("Agence de Voyage ajoutée !");
+            }
+            catch
+            {
+                ConsoleHelper.AfficherMessageErreur("Problème lors de l'ajout de l'Agence de Voyage !");
+            }
         }
     }
 }
