@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Applicationcs.cs" />
+    <Compile Include="ModuleAssurance.cs" />
     <Compile Include="ModuleDestination.cs" />
     <Compile Include="ModuleAgence.cs" />
     <Compile Include="ModuleClient.cs" />
