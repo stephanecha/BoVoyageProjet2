@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
-//using BoVoyage.Framework.Exemple.Metier;
 using BoVoyage.Framework.UI;
 using Class;
 using Service;
@@ -26,16 +24,12 @@ namespace BoVoyageProjet2APP
                 InformationAffichage.Creer<DossierReservation>(x=>x.IdVoyage, "IdVoyage", 10),
             };
 
-        private  IEnumerable<DossierReservation> liste = new List<DossierReservation>();
+        private IEnumerable<DossierReservation> liste = new List<DossierReservation>();
 
         public ModuleDossier(Application application, string nomModule)
             : base(application, nomModule)
         {
-            this.liste = new List<DossierReservation>
-            {
-                //new Client{Id = 1, Nom = "BAZAN", Prenom = "Yannick", DateNaissance = "",Email = "ybazan.pro@live.fr" },
-                //new Client{Id = 2, Nom = "PEANT", Prenom = "Frédéric", Email = "f.peant@gtm-ingenierie.fr" },
-            };
+
         }
 
         protected override void InitialiserMenu(Menu menu)
@@ -89,9 +83,6 @@ namespace BoVoyageProjet2APP
 
             ServiceDossierReservation service = new ServiceDossierReservation();
             service.AjouterDossierReservation(dossierReservation);
-
-
-
         }
     }
 }

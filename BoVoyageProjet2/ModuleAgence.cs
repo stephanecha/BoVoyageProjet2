@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
-//using BoVoyage.Framework.Exemple.Metier;
 using BoVoyage.Framework.UI;
 using Class;
 using Service;
@@ -19,14 +17,11 @@ namespace BoVoyageProjet2APP
                 InformationAffichage.Creer<AgenceVoyage>(x=>x.Nom, "Nom", 10),
             };
 
-
-        private  IEnumerable<AgenceVoyage> liste = new List<AgenceVoyage>();
+        private IEnumerable<AgenceVoyage> liste = new List<AgenceVoyage>();
 
         public ModuleAgence(Application application, string nomModule)
             : base(application, nomModule)
         {
-
-           
 
         }
 
@@ -61,7 +56,6 @@ namespace BoVoyageProjet2APP
             ConsoleHelper.AfficherListe(this.liste, strategieAffichageClients);
 
            // service.SupprimerAgenceVoyage(ConsoleSaisie.SaisirEntierObligatoire("Id Agence à supprimer ?"));
-
         }
 
         private void Modifier()

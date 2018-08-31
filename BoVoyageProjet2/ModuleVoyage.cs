@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
-//using BoVoyage.Framework.Exemple.Metier;
 using BoVoyage.Framework.UI;
 using Class;
 using Service;
@@ -24,14 +22,12 @@ namespace BoVoyageProjet2APP
                 InformationAffichage.Creer<Voyage>(x=>x.IdAgenceVoyage, "IdAgenceVoyage", 10),
             };
 
-        private  IEnumerable<Voyage> liste = new List<Voyage>();
+        private IEnumerable<Voyage> liste = new List<Voyage>();
 
         public ModuleVoyage(Application application, string nomModule)
             : base(application, nomModule)
         {
-            //ServiceAgenceVoyage service = new ServiceAgenceVoyage();
 
-            //this.liste = service.ListerAgenceVoyage();
         }
 
         protected override void InitialiserMenu(Menu menu)
@@ -89,7 +85,6 @@ namespace BoVoyageProjet2APP
            
             ServiceVoyage service = new ServiceVoyage();
             service.AjouterVoyage(voyage);
-
         }
     }
 }

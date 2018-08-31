@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
-//using BoVoyage.Framework.Exemple.Metier;
 using BoVoyage.Framework.UI;
 using Class;
 using Service;
@@ -21,8 +19,7 @@ namespace BoVoyageProjet2APP
                 InformationAffichage.Creer<Assurance>(x=>x.Montant, "Montant", 10),
             };
 
-
-        private  IEnumerable<Assurance> liste = new List<Assurance>();
+        private IEnumerable<Assurance> liste = new List<Assurance>();
 
         public ModuleAssurance(Application application, string nomModule)
             : base(application, nomModule)

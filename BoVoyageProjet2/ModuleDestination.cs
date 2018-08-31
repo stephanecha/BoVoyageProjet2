@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
-//using BoVoyage.Framework.Exemple.Metier;
 using BoVoyage.Framework.UI;
 using Class;
 using Service;
@@ -22,8 +20,7 @@ namespace BoVoyageProjet2APP
                 InformationAffichage.Creer<Destination>(x=>x.Description, "Description", 10),
             };
 
-
-        private  IEnumerable<Destination> liste = new List<Destination>();
+        private IEnumerable<Destination> liste = new List<Destination>();
 
         public ModuleDestination(Application application, string nomModule)
             : base(application, nomModule)
@@ -62,8 +59,6 @@ namespace BoVoyageProjet2APP
             ConsoleHelper.AfficherListe(this.liste, strategieAffichageClients);
 
             service.SupprimerDestination(ConsoleSaisie.SaisirEntierObligatoire("Id Destination à supprimer ?"));
-
-
         }
 
         private void Modifier()

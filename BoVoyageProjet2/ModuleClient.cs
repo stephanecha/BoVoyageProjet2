@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
-//using BoVoyage.Framework.Exemple.Metier;
 using BoVoyage.Framework.UI;
 using Class;
-using Service;
 
 namespace BoVoyageProjet2APP
 {
@@ -26,19 +23,13 @@ namespace BoVoyageProjet2APP
                 InformationAffichage.Creer<Client>(x=>x.Age, "Age", 10),
             };
 
-
-        private  IEnumerable<Client> liste = new List<Client>();
+        private IEnumerable<Client> liste = new List<Client>();
 
         public ModuleClient(Application application, string nomModule)
             : base(application, nomModule)
         {
-            this.liste = new List<Client>
-            {
-                new Client("M",  "BAZAN", "Yannick", DateTime.Now, "temp.pro@live.fr" ),
-            };
+
         }
-
-
 
         protected override void InitialiserMenu(Menu menu)
         {
