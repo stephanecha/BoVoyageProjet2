@@ -10,7 +10,7 @@ namespace Service
 
         public ServiceAssurance()
         {
-
+            dalAssurance = new DALAssurance();
         }
 
         public void AjouterAssurance(Assurance assurance)
@@ -46,6 +46,11 @@ namespace Service
         public void SupprimerAssurance(Assurance assurance)
         {
             dalAssurance.SupprimerAssurance(assurance);
+        }
+
+        public void SupprimerAssurance(int id)
+        {
+            dalAssurance.SupprimerAssurance(id);
         }
     }
 }

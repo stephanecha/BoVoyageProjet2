@@ -17,5 +17,7 @@ namespace DAL
         void ModifierAssurance(Assurance assurance);
 
         void SupprimerAssurance(Assurance assurance);
+
+        void SupprimerAssurance(int id);
     }
 }
