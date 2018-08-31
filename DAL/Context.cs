@@ -18,5 +18,20 @@ namespace DAL
         public DbSet<Participant> Participants { get; set; }
 
         public DbSet<Voyage> Voyages { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<DossierReservation>()
+                .HasMany(c => c.Assurances)
+                .WithMany()
+                .Map(x =>
+                {
+                    x.MapLeftKey("IdDossierReservation");
+                    x.MapRightKey("IdAssurance");
+                    x.ToTable("AssurancesDossiersReservations");
+                });
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
