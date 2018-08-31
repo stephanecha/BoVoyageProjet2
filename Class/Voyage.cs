@@ -23,23 +23,36 @@ namespace Class
         public int IdDestination { get; set; }
 
         [ForeignKey("IdDestination")]
-        public virtual Destination destination { get; set; }
+        public virtual Destination Destination { get; set; }
 
         public int IdAgenceVoyage { get; set; }
 
         [ForeignKey("IdAgenceVoyage")]
-        public virtual AgenceVoyage agenceVoyage { get; set; }
+        public virtual AgenceVoyage AgenceVoyage { get; set; }
 
         //Implementation du constructeur par defaut nécéssaire à Entity
         public Voyage() { }
 
-        public Voyage(DateTime dateAller, DateTime dateRetour, int placesDisponibles, decimal prixParPersonne)
+        public Voyage(DateTime dateAller, DateTime dateRetour, int placesDisponibles, decimal prixParPersonne,
+                      Destination destination, AgenceVoyage agenceVoyage)
         {
-            
             DateAller = dateAller;
             DateRetour = dateRetour;
             PlacesDisponibles = placesDisponibles;
             PrixParPersonne = prixParPersonne;
+            IdDestination = destination.Id;
+            IdAgenceVoyage = agenceVoyage.Id;
+        }
+
+        public Voyage(DateTime dateAller, DateTime dateRetour, int placesDisponibles, decimal prixParPersonne,
+                      int idDestination, int idAgenceVoyage)
+        {
+            DateAller = dateAller;
+            DateRetour = dateRetour;
+            PlacesDisponibles = placesDisponibles;
+            PrixParPersonne = prixParPersonne;
+            IdDestination = idDestination;
+            IdAgenceVoyage = idAgenceVoyage;
         }
 
         public void Reserver(int places)
