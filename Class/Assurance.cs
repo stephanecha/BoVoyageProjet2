@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Class
 {
@@ -16,14 +17,16 @@ namespace Class
 
         [Required]
         [EnumDataType(typeof(TypeAssurance))]
-        public TypeAssurance TypeAssurance { get; set; }
+        public TypeAssurance Type { get; set; }
+
+        public virtual ICollection<DossierReservation> DossiersReservations { get; set; }
 
         //Implementation du constructeur par defaut nécéssaire à Entity
         public Assurance() { }
 
-        public Assurance(TypeAssurance typeAssurance, decimal montant)
+        public Assurance(TypeAssurance type, decimal montant)
         {
-            TypeAssurance = typeAssurance;
+            Type = type;
             Montant = montant;
         }
     }

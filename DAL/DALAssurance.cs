@@ -40,7 +40,7 @@ namespace DAL
             using (Context context = new Context())
             {
                 return context.Assurances
-                                    .Where(x => x.TypeAssurance == typeAssurance)
+                                    .Where(x => x.Type == typeAssurance)
                                     .ToList();
             }
         }
