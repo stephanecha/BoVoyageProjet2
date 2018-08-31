@@ -14,12 +14,12 @@ namespace BoVoyageProjet2APP
             new List<InformationAffichage>
             {
                 InformationAffichage.Creer<Voyage>(x=>x.Id, "Id", 3),
-                InformationAffichage.Creer<Voyage>(x=>x.DateAller, "Date d'Aller", 10),
-                InformationAffichage.Creer<Voyage>(x=>x.DateRetour, "Date de Retour", 10),
-                InformationAffichage.Creer<Voyage>(x=>x.PlacesDisponibles, "Places Disponibles", 15),
-                InformationAffichage.Creer<Voyage>(x=>x.PrixParPersonne, "Prix Par Personne", 10),
-                InformationAffichage.Creer<Voyage>(x=>x.IdDestination, "IdDestination", 10),
-                InformationAffichage.Creer<Voyage>(x=>x.IdAgenceVoyage, "IdAgenceVoyage", 10),
+                InformationAffichage.Creer<Voyage>(x=>x.DateAller, "Aller le", 10),
+                InformationAffichage.Creer<Voyage>(x=>x.DateRetour, "Retour le", 10),
+                InformationAffichage.Creer<Voyage>(x=>x.PlacesDisponibles, "Places Dispo", 15),
+                InformationAffichage.Creer<Voyage>(x=>x.PrixParPersonne, "Prix/Pers", 10),
+                InformationAffichage.Creer<Voyage>(x=>x.IdDestination, "IdDest", 10),
+                InformationAffichage.Creer<Voyage>(x=>x.IdAgenceVoyage, "IdAgence", 10),
             };
 
         private IEnumerable<Voyage> liste = new List<Voyage>();
@@ -34,7 +34,7 @@ namespace BoVoyageProjet2APP
         {
             menu.AjouterElement(new ElementMenu("1", "Afficher")
             {
-                FonctionAExecuter = this.Afficher
+                FonctionAExecuter = this.AfficherListe
             });
             menu.AjouterElement(new ElementMenu("2", "Nouveau")
             {
@@ -61,7 +61,7 @@ namespace BoVoyageProjet2APP
             throw new NotImplementedException();
         }
 
-        private void Afficher()
+        private void AfficherListe()
         {
             ConsoleHelper.AfficherEntete("Afficher");
 
@@ -80,7 +80,9 @@ namespace BoVoyageProjet2APP
                 dateAller : ConsoleSaisie.SaisirDateObligatoire("dateAller ?"),
                 dateRetour : ConsoleSaisie.SaisirDateObligatoire("dateRetour ?"),
                 placesDisponibles : ConsoleSaisie.SaisirEntierObligatoire("Places Disponibles ?"),
-                prixParPersonne : ConsoleSaisie.SaisirEntierObligatoire("Prix Par Personne ?")
+                prixParPersonne : ConsoleSaisie.SaisirEntierObligatoire("Prix Par Personne ?"),
+                idDestination : ConsoleSaisie.SaisirEntierObligatoire("Id de la destination ?"),
+                idAgenceVoyage : ConsoleSaisie.SaisirEntierObligatoire("Id de l'agence de voyage ?")
             );
            
             ServiceVoyage service = new ServiceVoyage();

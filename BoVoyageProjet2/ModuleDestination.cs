@@ -32,7 +32,7 @@ namespace BoVoyageProjet2APP
         {
             menu.AjouterElement(new ElementMenu("1", "Afficher")
             {
-                FonctionAExecuter = this.Afficher
+                FonctionAExecuter = this.AfficherListe
             });
             menu.AjouterElement(new ElementMenu("2", "Nouveau")
             {
@@ -66,7 +66,7 @@ namespace BoVoyageProjet2APP
             throw new NotImplementedException();
         }
 
-        private void Afficher()
+        private void AfficherListe()
         {
             ConsoleHelper.AfficherEntete("Afficher");
             ServiceDestination service = new ServiceDestination();
