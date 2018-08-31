@@ -47,5 +47,10 @@ namespace Service
         {
             dalDossierReservation.SupprimerDossierReservation(dossierReservation);
         }
+
+        public void SupprimerDossierReservation(int id)
+        {
+            dalDossierReservation.SupprimerDossierReservation(id);
+        }
     }
 }

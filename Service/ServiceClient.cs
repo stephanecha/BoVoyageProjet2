@@ -47,5 +47,10 @@ namespace Service
         {
             dalClient.SupprimerClient(client);
         }
+
+        public void SupprimerClient(int id)
+        {
+            dalClient.SupprimerClient(id);
+        }
     }
 }

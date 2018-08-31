@@ -17,5 +17,6 @@ namespace Service
         void ModifierClient(Client client);
 
         void SupprimerClient(Client client);
+        void SupprimerClient(int id);
     }
 }

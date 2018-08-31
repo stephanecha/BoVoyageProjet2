@@ -20,5 +20,6 @@ namespace Service
         void ModifierVoyage(Voyage voyage);
 
         void SupprimerVoyage(Voyage voyage);
+        void SupprimerVoyage(int id);
     }
 }

@@ -58,5 +58,10 @@ namespace Service
         {
             dalVoyage.SupprimerVoyage(voyage);
         }
+
+        public void SupprimerVoyage(int id)
+        {
+            dalVoyage.SupprimerVoyage(id);
+        }
     }
 }

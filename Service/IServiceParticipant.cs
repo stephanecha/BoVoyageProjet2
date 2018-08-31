@@ -17,5 +17,6 @@ namespace Service
         void ModifierParticipant(Participant participant);
 
         void SupprimerParticipant(Participant participant);
+        void SupprimerParticipant(int id);
     }
 }

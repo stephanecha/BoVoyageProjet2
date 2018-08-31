@@ -17,5 +17,6 @@ namespace Service
         void ModifierDossierReservation(DossierReservation dossierReservation);
 
         void SupprimerDossierReservation(DossierReservation dossierReservation);
+        void SupprimerDossierReservation(int id);
     }
 }

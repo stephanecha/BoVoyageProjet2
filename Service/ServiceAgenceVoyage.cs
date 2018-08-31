@@ -43,5 +43,10 @@ namespace Service
         {
             dalAgenceVoyage.SupprimerAgenceVoyage(agenceVoyage);
         }
+
+        public void SupprimerAgenceVoyage(int id)
+        {
+            dalAgenceVoyage.SupprimerAgenceVoyage(id);
+        }
     }
 }

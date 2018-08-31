@@ -47,5 +47,10 @@ namespace Service
         {
             dalParticipant.SupprimerParticipant(participant);
         }
+
+        public void SupprimerParticipant(int id)
+        {
+            dalParticipant.SupprimerParticipant(id);
+        }
     }
 }
