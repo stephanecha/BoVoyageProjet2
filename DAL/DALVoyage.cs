@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Class;
 
 namespace DAL
@@ -70,6 +68,16 @@ namespace DAL
             using (Context context = new Context())
             {
                 context.Voyages.Attach(voyage);
+                context.Voyages.Remove(voyage);
+                context.SaveChanges();
+            }
+        }
+
+        public void SupprimerVoyage(int id)
+        {
+            using (Context context = new Context())
+            {
+                Voyage voyage = context.Voyages.Single(x => x.Id == id);
                 context.Voyages.Remove(voyage);
                 context.SaveChanges();
             }

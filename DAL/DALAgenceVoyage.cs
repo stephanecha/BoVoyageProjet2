@@ -61,5 +61,15 @@ namespace DAL
                 context.SaveChanges();
             }
         }
+
+        public void SupprimerAgenceVoyage(int id)
+        {
+            using (Context context = new Context())
+            {
+                AgenceVoyage agenceVoyage = context.AgencesVoyages.Single(x => x.Id == id);
+                context.AgencesVoyages.Remove(agenceVoyage);
+                context.SaveChanges();
+            }
+        }
     }
 }
