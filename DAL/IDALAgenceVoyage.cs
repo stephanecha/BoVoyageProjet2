@@ -16,5 +16,6 @@ namespace DAL
         void ModifierAgenceVoyage(AgenceVoyage agenceVoyage);
 
         void SupprimerAgenceVoyage(AgenceVoyage agenceVoyage);
+        void SupprimerAgenceVoyage(int id);
     }
 }

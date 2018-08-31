@@ -20,5 +20,6 @@ namespace DAL
         void ModifierVoyage(Voyage voyage);
 
         void SupprimerVoyage(Voyage voyage);
+        void SupprimerVoyage(int id);
     }
 }

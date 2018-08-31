@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Class;
 
 namespace DAL
@@ -18,5 +17,6 @@ namespace DAL
         void ModifierParticipant(Participant participant);
 
         void SupprimerParticipant(Participant participant);
+        void SupprimerParticipant(int id);
     }
 }

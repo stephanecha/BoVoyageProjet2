@@ -17,5 +17,6 @@ namespace DAL
         void ModifierClient(Client client);
 
         void SupprimerClient(Client client);
+        void SupprimerClient(int id);
     }
 }
